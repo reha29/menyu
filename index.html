@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restoran Menü</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #fafafa; color: #222; }
+        .header { background: #c41e3a; color: white; padding: 20px; text-align: center; }
+        .header h1 { font-size: 1.5rem; }
+        .cat-nav { display: flex; overflow-x: auto; gap: 10px; padding: 12px; background: white; }
+        .cat-btn { padding: 10px 20px; border: 2px solid #c41e3a; background: white; color: #c41e3a; border-radius: 20px; font-weight: bold; cursor: pointer; }
+        .cat-btn.active { background: #c41e3a; color: white; }
+        .menu-section { display: none; padding: 16px; }
+        .menu-section.active { display: block; }
+        .item-card { background: white; border-radius: 12px; padding: 16px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; }
+        .item-name { font-weight: bold; font-size: 1.1rem; margin-bottom: 4px; }
+        .item-price { color: #c41e3a; font-weight: bold; font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>🍽️ RESTORAN MENÜ</h1>
+</div>
+
+<div class="cat-nav">
+    <button class="cat-btn active" onclick="showCat('baslangic')">Başlangıç</button>
+    <button class="cat-btn" onclick="showCat('anayemek')">Ana Yemek</button>
+    <button class="cat-btn" onclick="showCat('tatli')">Tatlı</button>
+    <button class="cat-btn" onclick="showCat('icecek')">İçecek</button>
+</div>
+
+<div id="baslangic" class="menu-section active">
+    <div class="item-card"><div><div class="item-name">Bruschetta</div><div>Domates, fesleğen</div></div><div class="item-price">₺85</div></div>
+    <div class="item-card"><div><div class="item-name">Caprese Salata</div><div>Mozzarella, domates</div></div><div class="item-price">₺95</div></div>
+</div>
+
+<div id="anayemek" class="menu-section">
+    <div class="item-card"><div><div class="item-name">Izgara Bonfile</div><div>Marine bonfile, sebze</div></div><div class="item-price">₺320</div></div>
+    <div class="item-card"><div><div class="item-name">Fettuccine Alfredo</div><div>Kremalı parmesan</div></div><div class="item-price">₺185</div></div>
+</div>
+
+<div id="tatli" class="menu-section">
+    <div class="item-card"><div><div class="item-name">Tiramisu</div><div>Espresso, mascarpone</div></div><div class="item-price">₺95</div></div>
+</div>
+
+<div id="icecek" class="menu-section">
+    <div class="item-card"><div><div class="item-name">Ev Limonata</div><div>Taze limon, nane</div></div><div class="item-price">₺45</div></div>
+    <div class="item-card"><div><div class="item-name">Türk Kahvesi</div><div>Lokum eşliğinde</div></div><div class="item-price">₺35</div></div>
+</div>
+
+<script>
+function showCat(id) {
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.menu-section').forEach(s => s.classList.remove('active'));
+    event.target.classList.add('active');
+    document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
